@@ -14,7 +14,6 @@ class _LoginPageState extends State<LoginPage> {
   bool isLoaging = false;
   bool _check = false;
   bool _showPass = true;
-  late double _screenHeightSize;
   final _loginFormKey = GlobalKey<FormState>();
 
   final emailController = TextEditingController();
@@ -24,7 +23,6 @@ class _LoginPageState extends State<LoginPage> {
   final size = 200.0;
 
   Widget build(BuildContext context) {
-    _screenHeightSize = MediaQuery.of(context).size.height;
     return Stack(
       children: [
         BackApp(),
@@ -37,7 +35,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget loginPage() {
-    const TWO_PI = 3.14 * 2;
     return Container(
       padding: EdgeInsets.only(top: 260),
       // margin: EdgeInsets.only(bottom: 140),
@@ -49,8 +46,8 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               height: 100,
             ),
-            inputGradient(
-                false, 'Correo', Icon(Icons.person), Icon(Icons.person) , emailController),
+            inputGradient(false, 'Correo', Icon(Icons.person),
+                Icon(Icons.person), emailController),
             Divider(color: Colors.transparent),
             inputGradient(
                 _showPass,
@@ -142,10 +139,12 @@ class _LoginPageState extends State<LoginPage> {
           .signInWithEmailAndPassword(
         email: email,
         password: pass,
-      ).then((value) {
+      )
+          .then((value) {
         get_data(value.user!.uid);
       }).catchError((e) {
         if (e.code == 'user-not-found') {
+          // ignore: invalid_return_type_for_catch_error
           return showDialog(
             context: context,
             builder: (context) => AlertDialogWidget(
@@ -154,6 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                     'El usuario no se encuentra registrado en la base de datos.'),
           );
         } else if (e.code == 'wrong-password') {
+          // ignore: invalid_return_type_for_catch_error
           return showDialog(
             context: context,
             builder: (context) => AlertDialogWidget(
@@ -162,6 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                     'La contraseña que digitaste es erronea, intenta digitarla nuevaente.'),
           );
         } else if (e.code == 'invalid-email') {
+          // ignore: invalid_return_type_for_catch_error
           return showDialog(
             context: context,
             builder: (context) => AlertDialogWidget(

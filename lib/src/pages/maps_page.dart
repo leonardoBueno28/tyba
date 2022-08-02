@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -113,19 +115,20 @@ class _MapsPageState extends State<MapsPage> {
           _markers.add(
             Marker(
               markerId: MarkerId('myLocation'),
-              position:
-                  LatLng(currentLocation.latitude!.toDouble(), currentLocation.longitude!.toDouble()),
+              position: LatLng(currentLocation.latitude!.toDouble(),
+                  currentLocation.longitude!.toDouble()),
               infoWindow: InfoWindow(title: 'location', snippet: 'welcome'),
               icon: pinLocationIcon,
             ),
           );
         }
-        origen = LatLng(currentLocation.latitude!.toDouble(), currentLocation.longitude!.toDouble());
+        origen = LatLng(currentLocation.latitude!.toDouble(),
+            currentLocation.longitude!.toDouble());
         _markers.add(
           Marker(
             markerId: MarkerId('myLocation'),
-            position:
-                LatLng(currentLocation.latitude!.toDouble(), currentLocation.longitude!.toDouble()),
+            position: LatLng(currentLocation.latitude!.toDouble(),
+                currentLocation.longitude!.toDouble()),
             infoWindow: InfoWindow(title: 'location', snippet: 'welcome'),
             icon: pinLocationIcon,
           ),
@@ -139,9 +142,7 @@ class _MapsPageState extends State<MapsPage> {
             'latitude': currentLocation.latitude,
             'longitude': currentLocation.longitude,
             'rol': rol
-          }).then((value) => {
-            
-          });
+          }).then((value) => {});
         }
         initial++;
       });

@@ -1,5 +1,5 @@
-import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +7,7 @@ import 'package:tyba/src/pages/home_page.dart';
 import 'package:tyba/src/pages/maps_page.dart';
 import 'package:tyba/src/pages/qrPage.dart';
 
-class NavigationBar extends StatefulWidget {
+class NavigationBarApp extends StatefulWidget {
   @override
   _NavigationBarState createState() => _NavigationBarState();
 }
@@ -15,7 +15,7 @@ class NavigationBar extends StatefulWidget {
 final FirebaseAuth auth = FirebaseAuth.instance;
 var uid;
 
-class _NavigationBarState extends State<NavigationBar> {
+class _NavigationBarState extends State<NavigationBarApp> {
   //State class
   int _page = 0;
   GlobalKey _bottomNavigationKey = GlobalKey();

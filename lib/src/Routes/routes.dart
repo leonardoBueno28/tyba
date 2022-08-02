@@ -4,6 +4,7 @@ import 'package:tyba/src/pages/bus_page.dart';
 import 'package:tyba/src/pages/cityRoutes_page.dart';
 import 'package:tyba/src/pages/generate.dart';
 import 'package:tyba/src/pages/home_page.dart';
+import 'package:tyba/src/pages/navigationBar.dart';
 import 'package:tyba/src/pages/pointController_page.dart';
 import 'package:tyba/src/pages/qrPage.dart';
 import 'package:tyba/src/pages/register_pages.dart';
@@ -23,9 +24,7 @@ Map<String, WidgetBuilder> getAplicationRoutes() {
     'scan': (BuildContext context) => ScanPage(),
     'generate': (BuildContext context) => GeneratePage(),
     'regs': (BuildContext context) => RegsPage(),
-    'nav': (BuildContext context) => NavigationBar(
-          destinations: [],
-        ),
+    'nav': (BuildContext context) => NavigationBarApp(),
     'timePage': (BuildContext context) => TimePage(),
     'busPage': (BuildContext context) => BusPage(),
     'routesPage': (BuildContext context) => RoutesPage(),
